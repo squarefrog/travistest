@@ -3,4 +3,5 @@ before_script:
   - export LANG=en_US.UTF-8
   - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
   - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
-script: "xcodebuild -project TravisTest.xcodeproj -scheme TravisTest -sdk iphonesimulator clean test | xcpretty -c"
+  - pod install
+script: "xcodebuild -workspace TravisTest.xcworkspace -scheme TravisTest -sdk iphonesimulator clean test | xcpretty -c"
